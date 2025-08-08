@@ -46,32 +46,30 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Ira's 2nd Birthday Invitation</title>
+        <title>Ira's Birthday Invitation</title>
         <meta property="og:title" content="You're Invited to Ira's 2nd Birthday!" />
         <meta property="og:description" content="Join us on 31st August at Prestige Shantiniketan for a fun-filled birthday celebration 🎉" />
-        <meta property="og:image" content="https://your-deployment-url.vercel.app/birthday-invit.jpeg" />
+        <meta property="og:image" content="https://ira-birthday.vercel.app/birthday-invit.jpeg" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://your-deployment-url.vercel.app" />
+        <meta property="og:url" content="https://ira-birthday.vercel.app" />
       </Head>
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="animate-float-leaf absolute top-0 left-1/4 text-green-400 text-4xl">🍃</div>
         <div className="animate-float-leaf-delay absolute top-0 left-1/2 text-green-500 text-3xl">🍂</div>
         <div className="animate-float-leaf-slow absolute top-0 left-3/4 text-green-300 text-2xl">🍁</div>
+        <div className="animate-float-balloons absolute top-0 left-1/3 text-red-400 text-4xl">🎈</div>
+        <div className="animate-float-balloons-delay absolute top-0 left-2/3 text-yellow-400 text-4xl">🎉</div>
+        <div className="animate-float-stars absolute top-0 left-1/5 text-blue-400 text-3xl">✨</div>
+        <div className="animate-float-side-left absolute top-1/3 left-0 text-purple-400 text-3xl">🎀</div>
+        <div className="animate-float-side-right absolute top-1/3 right-0 text-pink-400 text-3xl">🧸</div>
       </div>
       <div
         className="min-h-screen flex flex-col items-center justify-center p-6 text-center font-sans bg-pink-100"
-        style={{
-          backgroundImage: 'url("/bg.jpg")',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'repeat',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
+        style={{ backgroundColor: 'white' }}
       >
-      <h1 className="text-3xl font-bold mb-4 text-pink-700">You're Invited!</h1>
 
       <Image
-        src="/birthday-invit.jpeg"
+        src="/birthday-invit.png"
         alt="Birthday Invitation"
         width={800}
         height={800}
@@ -93,7 +91,7 @@ export default function Home() {
       <div className="mt-6 text-sm text-gray-600">
         <p>
           <a
-            href="https://www.google.com/maps?q=ABC+Apartments+Bangalore"
+            href="https://maps.app.goo.gl/BJvwZAbocMfe4iVY6"
             target="_blank"
             className="underline"
           >
@@ -101,11 +99,11 @@ export default function Home() {
           </a>
           {" · "}
           <a
-            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ira%27s+Birthday&details=Join+us+for+Ira%27s+birthday+celebration!&location=Clubhouse,+ABC+Apartments,+Bangalore&dates=20250815T113000Z/20250815T150000Z"
-            target="_blank"
+            href="/Iras-Birthday.ics"
+            download="Iras-Birthday.ics"
             className="underline"
           >
-            Add to Calendar
+            Add to Calendar (Google / Apple)
           </a>
         </p>
       </div>
@@ -124,6 +122,29 @@ export default function Home() {
         .animate-float-leaf-slow {
           animation: float 15s linear infinite;
           animation-delay: 6s;
+        }
+        .animate-float-balloons {
+          animation: float 9s ease-in-out infinite;
+        }
+        .animate-float-balloons-delay {
+          animation: float 11s ease-in-out infinite;
+          animation-delay: 2s;
+        }
+        .animate-float-stars {
+          animation: float 13s ease-in-out infinite;
+          animation-delay: 4s;
+        }
+        .animate-float-side-left {
+          animation: floatSide 10s ease-in-out infinite;
+        }
+        .animate-float-side-right {
+          animation: floatSide 12s ease-in-out infinite;
+          animation-delay: 2s;
+        }
+
+        @keyframes floatSide {
+          0% { transform: translateX(0); opacity: 1; }
+          100% { transform: translateX(100px); opacity: 0; }
         }
       `}</style>
     </div>
