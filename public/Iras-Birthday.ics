@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ira's Birthday//EN
+BEGIN:VEVENT
+UID:iras-birthday-2025@example.com
+DTSTAMP:20250801T093000Z
+DTSTART:20250831T043000Z
+DTEND:20250831T073000Z
+SUMMARY:Ira's 2nd Birthday 🎂
+DESCRIPTION:Join us to celebrate Ira's 2nd birthday at Prestige Shantiniketan.
+LOCATION:19108, Prestige Shantiniketan, Whitefield, Bangalore
+END:VEVENT
+END:VCALENDAR
