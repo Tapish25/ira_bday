@@ -35,7 +35,7 @@ export default function Home() {
   }, []);
 
   const handleRSVP = () => {
-    const message = encodeURIComponent("Hi! I will join with family");
+    const message = encodeURIComponent("Hi Akanksha! I will join with family! See you then.");
     const phoneNumber = "918218652024"; // Replace with your WhatsApp number
     const url = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(url, "_blank");
