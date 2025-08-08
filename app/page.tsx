@@ -1,8 +1,19 @@
 "use client";
 
+
 import Image from "next/image";
 import { useState } from "react";
 import { useEffect } from "react";
+
+declare global {
+  interface Window {
+    confetti?: (options: {
+      particleCount: number;
+      spread: number;
+      origin: { y: number };
+    }) => void;
+  }
+}
 
 export default function Home() {
   const [rsvpSent, setRsvpSent] = useState(false);
