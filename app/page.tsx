@@ -36,8 +36,8 @@ export default function Home() {
   }, []);
 
   const handleRSVP = () => {
-    const message = encodeURIComponent("Hi! I will join with family 🎉");
-    const phoneNumber = "919820118564"; // Replace with your WhatsApp number
+    const message = encodeURIComponent("Hi! I will join with family");
+    const phoneNumber = "918218652024"; // Replace with your WhatsApp number
     const url = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(url, "_blank");
     setRsvpSent(true);
@@ -49,7 +49,7 @@ export default function Home() {
         <title>Ira's Birthday Invitation</title>
         <meta property="og:title" content="You're Invited to Ira's 2nd Birthday!" />
         <meta property="og:description" content="Join us on 31st August at Prestige Shantiniketan for a fun-filled birthday celebration 🎉" />
-        <meta property="og:image" content="https://ira-birthday.vercel.app/birthday-invit.jpeg" />
+        <meta property="og:image" content="https://ira-birthday.vercel.app/birthday-invit.webp" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ira-birthday.vercel.app" />
       </Head>
@@ -62,6 +62,8 @@ export default function Home() {
         <div className="animate-float-stars absolute top-0 left-1/5 text-blue-400 text-3xl">✨</div>
         <div className="animate-float-side-left absolute top-1/3 left-0 text-purple-400 text-3xl">🎀</div>
         <div className="animate-float-side-right absolute top-1/3 right-0 text-pink-400 text-3xl">🧸</div>
+        <div className="animate-float-side-left-alt absolute top-2/3 left-0 text-indigo-400 text-3xl">🪁</div>
+        <div className="animate-float-side-right-alt absolute top-2/3 right-0 text-orange-400 text-3xl">🎊</div>
       </div>
       <div
         className="min-h-screen flex flex-col items-center justify-center p-6 text-center font-sans bg-pink-100"
@@ -69,7 +71,7 @@ export default function Home() {
       >
 
       <Image
-        src="/birthday-invit.png"
+        src="/birthday-invit.webp"
         alt="Birthday Invitation"
         width={800}
         height={800}
@@ -141,10 +143,21 @@ export default function Home() {
           animation: floatSide 12s ease-in-out infinite;
           animation-delay: 2s;
         }
+        .animate-float-side-left-alt {
+          animation: floatSideAlt 14s ease-in-out infinite;
+        }
+        .animate-float-side-right-alt {
+          animation: floatSideAlt 16s ease-in-out infinite;
+          animation-delay: 3s;
+        }
 
         @keyframes floatSide {
           0% { transform: translateX(0); opacity: 1; }
           100% { transform: translateX(100px); opacity: 0; }
+        }
+        @keyframes floatSideAlt {
+          0% { transform: translateX(0); opacity: 1; }
+          100% { transform: translateX(-100px); opacity: 0; }
         }
       `}</style>
     </div>
