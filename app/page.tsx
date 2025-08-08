@@ -1,6 +1,5 @@
 "use client";
 
-import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -45,14 +44,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Ira's Birthday Invitation</title>
-        <meta property="og:title" content="You're Invited to Ira's 2nd Birthday!" />
-        <meta property="og:description" content="Join us on 31st August at Prestige Shantiniketan for a fun-filled birthday celebration 🎉" />
-        <meta property="og:image" content="https://ira-birthday.vercel.app/birthday-invit.webp" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ira-birthday.vercel.app" />
-      </Head>
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="animate-float-leaf absolute top-0 left-1/4 text-green-400 text-4xl">🍃</div>
         <div className="animate-float-leaf-delay absolute top-0 left-1/2 text-green-500 text-3xl">🍂</div>
