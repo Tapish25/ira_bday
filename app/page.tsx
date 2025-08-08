@@ -1,103 +1,111 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+import { useEffect } from "react";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [rsvpSent, setRsvpSent] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+  useEffect(() => {
+    const confettiScript = document.createElement("script");
+    confettiScript.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js";
+    confettiScript.async = true;
+    confettiScript.onload = () => {
+      const interval = setInterval(() => {
+        window.confetti && window.confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      }, 5000); // every 5 seconds
+      return () => clearInterval(interval);
+    };
+    document.body.appendChild(confettiScript);
+  }, []);
+
+  const handleRSVP = () => {
+    const message = encodeURIComponent("Hi! I will join with family 🎉");
+    const phoneNumber = "919820118564"; // Replace with your WhatsApp number
+    const url = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(url, "_blank");
+    setRsvpSent(true);
+  };
+
+  return (
+    <>
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <div className="animate-float-leaf absolute top-0 left-1/4 text-green-400 text-4xl">🍃</div>
+        <div className="animate-float-leaf-delay absolute top-0 left-1/2 text-green-500 text-3xl">🍂</div>
+        <div className="animate-float-leaf-slow absolute top-0 left-3/4 text-green-300 text-2xl">🍁</div>
+      </div>
+      <div
+        className="min-h-screen flex flex-col items-center justify-center p-6 text-center font-sans bg-pink-100"
+        style={{
+          backgroundImage: 'url("/bg.jpg")',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'repeat',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+      <h1 className="text-3xl font-bold mb-4 text-pink-700">You're Invited!</h1>
+      <p className="mb-2 text-lg">Join us to celebrate Ira's 2nd Birthday 🎂</p>
+      <p className="mb-4 text-md">📅 Date: 31st August 2025 | 🕕 Time: 10 AM onwards</p>
+      <p className="mb-4 text-md">📍 Location: 19108, Prestige Shantiniketan, Whitefield, Bangalore</p>
+
+      <Image
+        src="/birthday-invit.jpeg" // replace with your image in public folder
+        alt="Birthday Invitation"
+        width={300}
+        height={300}
+        className="rounded-xl mb-6 shadow-md"
+      />
+
+      <button
+        onClick={handleRSVP}
+        className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full text-lg transition"
+      >
+        {rsvpSent ? "RSVP Sent!" : "RSVP via WhatsApp"}
+      </button>
+
+      <div className="mt-6 text-sm text-gray-600">
+        <p>
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://www.google.com/maps?q=ABC+Apartments+Bangalore"
             target="_blank"
-            rel="noopener noreferrer"
+            className="underline"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            View location on map
           </a>
+          {" · "}
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ira%27s+Birthday&details=Join+us+for+Ira%27s+birthday+celebration!&location=Clubhouse,+ABC+Apartments,+Bangalore&dates=20250815T113000Z/20250815T150000Z"
             target="_blank"
-            rel="noopener noreferrer"
+            className="underline"
           >
-            Read our docs
+            Add to Calendar
           </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </p>
+      </div>
+      <style jsx>{`
+        @keyframes float {
+          0% { transform: translateY(0); opacity: 1; }
+          100% { transform: translateY(100vh); opacity: 0; }
+        }
+        .animate-float-leaf {
+          animation: float 10s linear infinite;
+        }
+        .animate-float-leaf-delay {
+          animation: float 12s linear infinite;
+          animation-delay: 3s;
+        }
+        .animate-float-leaf-slow {
+          animation: float 15s linear infinite;
+          animation-delay: 6s;
+        }
+      `}</style>
     </div>
+    </>
   );
 }
