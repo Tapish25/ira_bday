@@ -44,18 +44,6 @@ export default function Home() {
 
   return (
     <>
-      <div className="absolute inset-0 overflow-hidden z-0">
-        <div className="animate-float-leaf absolute top-0 left-1/4 text-green-400 text-4xl">🍃</div>
-        <div className="animate-float-leaf-delay absolute top-0 left-1/2 text-green-500 text-3xl">🍂</div>
-        <div className="animate-float-leaf-slow absolute top-0 left-3/4 text-green-300 text-2xl">🍁</div>
-        <div className="animate-float-balloons absolute top-0 left-1/3 text-red-400 text-4xl">🎈</div>
-        <div className="animate-float-balloons-delay absolute top-0 left-2/3 text-yellow-400 text-4xl">🎉</div>
-        <div className="animate-float-stars absolute top-0 left-1/5 text-blue-400 text-3xl">✨</div>
-        <div className="animate-float-side-left absolute top-1/3 left-0 text-purple-400 text-3xl">🎀</div>
-        <div className="animate-float-side-right absolute top-1/3 right-0 text-pink-400 text-3xl">🧸</div>
-        <div className="animate-float-side-left-alt absolute top-2/3 left-0 text-indigo-400 text-3xl">🪁</div>
-        <div className="animate-float-side-right-alt absolute top-2/3 right-0 text-orange-400 text-3xl">🎊</div>
-      </div>
       <div
         className="min-h-screen flex flex-col items-center justify-center p-6 text-center font-sans bg-pink-100"
         style={{
@@ -105,57 +93,6 @@ export default function Home() {
           </a>
         </p>
       </div>
-      <style jsx>{`
-        @keyframes float {
-          0% { transform: translateY(0); opacity: 1; }
-          100% { transform: translateY(100vh); opacity: 0; }
-        }
-        .animate-float-leaf {
-          animation: float 10s linear infinite;
-        }
-        .animate-float-leaf-delay {
-          animation: float 12s linear infinite;
-          animation-delay: 3s;
-        }
-        .animate-float-leaf-slow {
-          animation: float 15s linear infinite;
-          animation-delay: 6s;
-        }
-        .animate-float-balloons {
-          animation: float 9s ease-in-out infinite;
-        }
-        .animate-float-balloons-delay {
-          animation: float 11s ease-in-out infinite;
-          animation-delay: 2s;
-        }
-        .animate-float-stars {
-          animation: float 13s ease-in-out infinite;
-          animation-delay: 4s;
-        }
-        .animate-float-side-left {
-          animation: floatSide 10s ease-in-out infinite;
-        }
-        .animate-float-side-right {
-          animation: floatSide 12s ease-in-out infinite;
-          animation-delay: 2s;
-        }
-        .animate-float-side-left-alt {
-          animation: floatSideAlt 14s ease-in-out infinite;
-        }
-        .animate-float-side-right-alt {
-          animation: floatSideAlt 16s ease-in-out infinite;
-          animation-delay: 3s;
-        }
-
-        @keyframes floatSide {
-          0% { transform: translateX(0); opacity: 1; }
-          100% { transform: translateX(100px); opacity: 0; }
-        }
-        @keyframes floatSideAlt {
-          0% { transform: translateX(0); opacity: 1; }
-          100% { transform: translateX(-100px); opacity: 0; }
-        }
-      `}</style>
     </div>
     </>
   );
