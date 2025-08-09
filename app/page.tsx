@@ -58,7 +58,12 @@ export default function Home() {
       </div>
       <div
         className="min-h-screen flex flex-col items-center justify-center p-6 text-center font-sans bg-pink-100"
-        style={{ backgroundColor: 'white' }}
+        style={{
+          backgroundImage: 'url("/bg4.jpg")',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+        }}
       >
 
       <Image
